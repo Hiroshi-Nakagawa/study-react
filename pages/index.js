@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Links } from "../components/Links";
 import { Footer } from "../components/Footer";
 import styles from "../styles/Home.module.css";
-import Headline from "../components/Headline";
+import { Headline } from "../components/Headline";
 
 export default function Home() {
   return (
