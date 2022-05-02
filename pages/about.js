@@ -14,7 +14,6 @@ export default function About() {
       </Head>
       <Header />
       <Main page="about" />
-
       <Footer />
     </div>
   );
