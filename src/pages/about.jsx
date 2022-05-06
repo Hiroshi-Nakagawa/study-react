@@ -3,14 +3,18 @@ import { Footer } from "src/components/Footer";
 import { Header } from "src/components/Header";
 import { Main } from "src/components/Main";
 import classes from "src/styles/Home.module.css";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
-import { useBgLightBlue } from "src/hooks/useBgLightBlue";
 
-export default function About() {
-  const [count, isShow, handleClick, handleDisplay] = useCounter();
-  const [text, array, handleChange, handleAdd] = useInputArray();
-  useBgLightBlue();
+export default function About(props) {
+  const {
+    count,
+    isShow,
+    handleClick,
+    handleDisplay,
+    text,
+    array,
+    handleChange,
+    handleAdd,
+  } = props;
 
   return (
     <div className={classes.container}>
@@ -25,7 +29,7 @@ export default function About() {
       <button onClick={handleAdd}>要素追加</button>
       <ul>
         {array.map((item) => {
-          return (<li key={item}>{item}</li>)
+          return <li key={item}>{item}</li>;
         })}
       </ul>
       <Main page="about" />
