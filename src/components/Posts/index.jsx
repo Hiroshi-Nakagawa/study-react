@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
-  if (!error && !data) {
+  if (isLoading) {
     return <div>ローディング中</div>;
   }
 
@@ -11,7 +11,7 @@ export const Posts = () => {
     return <div>{error.message}</div>;
   }
 
-  if (data.length === 0) {
+  if (isEmpty) {
     return <div>データは空です</div>;
   }
 
