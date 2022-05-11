@@ -1,10 +1,9 @@
 import Head from "next/head";
 import { Header } from "src/components/Header";
-import classes from "src/styles/Home.module.css";
 
 const Index = () => {
   return (
-    <div className={classes.container}>
+    <div>
       <Head>
         <title>Index Page</title>
       </Head>
