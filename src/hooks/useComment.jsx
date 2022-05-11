@@ -14,6 +14,6 @@ export const useComment = () => {
   return {
     comment,
     error: commentError,
-    isLoading: comment && !commentError,
+    isLoading: !comment && !commentError,
   };
 };
