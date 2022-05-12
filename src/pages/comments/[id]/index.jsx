@@ -15,7 +15,6 @@ const CommentsId = () => {
     <div>
       <Header />
       <Comment />
-      <PostByCommentPostId id={data?.postId} />
     </div>
   );
 };
