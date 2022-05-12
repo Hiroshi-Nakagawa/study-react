@@ -1,27 +1,19 @@
 import Link from "next/link";
-import { useComment } from "src/hooks/useComment";
-import { fetcher } from "src/util/fetcher";
-import useSWR from "swr";
+import { usePost } from "src/hooks/usePost";
 
 export const PostByCommentPostId = (props) => {
-  const { data: post, error: postError } = useSWR(
-    props.comment?.postId
-      ? `https://jsonplaceholder.typicode.com/posts/${props.comment.postId}`
-      : null,
-    fetcher
-  );
+  const { data, error, isLoading } = usePost(props.id);
 
-  if (!post && !postError) {
+  if (isLoading) {
     return <div>ローディング中</div>;
   }
-  if (postError) {
-    return <div>{postError.message}</div>;
+  if (error) {
+    return <div>{error.message}</div>;
   }
-  console.log("post", post);
   return (
     <div>
-      <Link href={`/posts/${post.id}`}>
-        <a>{post.title}</a>
+      <Link href={`/posts/${data.id}`}>
+        <a>{data.title}</a>
       </Link>
     </div>
   );
