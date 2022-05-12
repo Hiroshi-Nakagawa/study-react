@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useCommentsByPostsId } from "src/hooks/useFetchArray";
 
 export const CommentsByPostsId = (props) => {
@@ -15,7 +16,13 @@ export const CommentsByPostsId = (props) => {
   return (
     <ul>
       {data.map((comment) => {
-        return <li key={comment.id}>{comment.body}</li>;
+        return (
+          <li key={comment.id}>
+            <Link href={`/comments/${comment.id}`}>
+              <a>{comment.body}</a>
+            </Link>
+          </li>
+        );
       })}
     </ul>
   );

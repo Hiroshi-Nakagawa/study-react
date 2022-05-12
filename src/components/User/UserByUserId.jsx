@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { fetcher } from "src/util/fetcher";
 import useSWR from "swr";
 
@@ -12,5 +13,12 @@ export const UserByUserId = (props) => {
   if (error) {
     return <div>{error.message}</div>;
   }
-  return <div>created by {data.name}</div>;
+  return (
+    <div>
+      created by{" "}
+      <Link href={`/users/${data.id}`}>
+        <a>{data.name}</a>
+      </Link>
+    </div>
+  );
 };
