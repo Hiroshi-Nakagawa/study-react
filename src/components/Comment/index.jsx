@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useComment } from "src/hooks/useComment";
 
 export const Comment = () => {
-  const { comment, error, isLoading } = useComment();
+  const { data, error, isLoading } = useComment();
   if (isLoading) {
     return <div>ローディング中</div>;
   }
@@ -13,12 +13,12 @@ export const Comment = () => {
   return (
     <div>
       <Head>
-        <title>{comment?.name}</title>
+        <title>{data?.name}</title>
       </Head>
-      <h1>{comment?.body}</h1>
+      <h1>{data?.body}</h1>
       <ul>
-        <li>{comment?.name}</li>
-        <li>{comment?.email}</li>
+        <li>{data?.name}</li>
+        <li>{data?.email}</li>
       </ul>
     </div>
   );
