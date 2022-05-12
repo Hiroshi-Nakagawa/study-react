@@ -4,23 +4,16 @@ const { default: useSWR } = require("swr");
 
 export const usePost = () => {
   const router = useRouter();
-  const { data: post, error: postError } = useSWR(
+  const { data, error } = useSWR(
     router.query.id
       ? `https://jsonplaceholder.typicode.com/posts/${router.query.id}`
       : null,
     fetcher
   );
-  const { data: user, error: userError } = useSWR(
-    post?.userId
-      ? `https://jsonplaceholder.typicode.com/users/${post.userId}`
-      : null,
-    fetcher
-  );
 
   return {
-    post,
-    user,
-    error: postError || userError,
-    isLoading: !postError && !user && !userError, // 講座では!postErrorは書いていない
+    data,
+    error,
+    isLoading: !data && !error,
   };
 };
