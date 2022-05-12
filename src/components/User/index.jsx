@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { PostsByUserId } from "src/components/Posts/PostsByUserId";
 import { useUser } from "src/hooks/useUser";
 
 export const User = () => {
@@ -24,6 +25,8 @@ export const User = () => {
         <li>{user?.website}</li>
         <li>{user?.company.name}</li>
       </ul>
+      <p>Post List</p>
+      <PostsByUserId id={user.id} />
     </div>
   );
 };
