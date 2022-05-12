@@ -25,7 +25,7 @@ export const User = () => {
         <li>{data?.website}</li>
         <li>{data?.company.name}</li>
       </ul>
-      <p>Post List</p>
+      <h2>投稿</h2>
       <PostsByUserId id={data.id} />
     </div>
   );
