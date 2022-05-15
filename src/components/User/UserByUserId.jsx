@@ -17,7 +17,7 @@ export const UserByUserId = (props) => {
     <div>
       created by{" "}
       <Link href={`/users/${data.id}`}>
-        <a>{data.name}</a>
+        <a className="text-lg">{data.name}</a>
       </Link>
     </div>
   );
